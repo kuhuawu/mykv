@@ -10,4 +10,4 @@ db，db的实体。包含了db的各种操作，包括读取，写入数据。
 
 
 
-需要拉取的依赖：
+需要拉取的依赖：github.com/tidwall/redcon
