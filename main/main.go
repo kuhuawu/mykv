@@ -24,7 +24,7 @@ type node struct {
 	Created  time.Time
 }
 
-// List 是一个简单的列表结构
+// List 
 type List struct {
 	data  map[string][]string
 	mutex sync.RWMutex
@@ -68,7 +68,7 @@ func (db *Hash) HDEL(key string, fields []string) {
 
 //list
 
-// LPUSH 向列表左侧添加一个或多个元素
+// LPUSH 
 func (db *List) LPUSH(key string, values []string) {
 	db.mutex.Lock()
 	defer db.mutex.Unlock()
@@ -79,7 +79,7 @@ func (db *List) LPUSH(key string, values []string) {
 	db.data[key] = append(values, db.data[key]...)
 }
 
-// LPOP 从列表左侧移除并返回第一个元素
+// LPOP 
 func (db *List) LPOP(key string) (string, bool) {
 	db.mutex.Lock()
 	defer db.mutex.Unlock()
@@ -94,19 +94,19 @@ func (db *List) LPOP(key string) (string, bool) {
 
 func main() {
 
-	// 初始化存储引擎
+	
 
-	// 设置数据库的目录和段大小
+	
 	dir := "C:/mykv"                        // 数据库存储目录
 	segmentSize := int64(1024 * 1024 * 200) //  数据文件阈值大小200m
 
-	// 创建 Options 结构体
+	//初始化
 	options := &kv.Options{
 		Dir:         dir,
 		SegmentSize: segmentSize,
 	}
 
-	// 初始化 DB 实例
+	
 	db, err := db.NewDB(options)
 	if err != nil {
 		log.Fatalf("Failed to initialize DB: %v", err)
