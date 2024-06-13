@@ -1,4 +1,4 @@
-实现了简单的命令，可以用redis-cli连接本地服务器，来使用"ping","get","set","del","quit"
+实现了简单的命令，可以用redis-cli连接本地服务器（redis-cli -p 8080），来使用"ping","get","set","del","quit"
 
 
 Entry：代表db中一条数据的信息。
